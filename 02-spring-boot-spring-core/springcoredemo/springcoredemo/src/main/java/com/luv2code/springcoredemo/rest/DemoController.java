@@ -15,7 +15,7 @@ public class DemoController {
     //Qualifier has higher priority
 
     @Autowired
-    public DemoController(@Qualifier("cricketCoach") Coach theCoach,
+    public DemoController(@Qualifier("swimCoach") Coach theCoach,
                           @Qualifier("cricketCoach") Coach theAnotherCoach){
         myCoach = theCoach;
         anotherCoach = theAnotherCoach;
