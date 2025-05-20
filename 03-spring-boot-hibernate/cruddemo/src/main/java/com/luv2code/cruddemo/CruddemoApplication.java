@@ -2,6 +2,7 @@ package com.luv2code.cruddemo;
 
 import com.luv2code.cruddemo.dao.StudentDAO;
 import com.luv2code.cruddemo.entity.Student;
+import jakarta.persistence.EntityManager;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -23,8 +24,16 @@ public class CruddemoApplication {
 			//createMultipleStudents(studentDAO);
 			//readStudent(studentDAO);
 			//queryForStudents(studentDAO);
-			queryForStudentByLastName(studentDAO);
+			//queryForStudentByLastName(studentDAO);
+			updateStudent(studentDAO);
 		};
+	}
+
+	private void updateStudent(StudentDAO studentDAO) {
+		int studentId =1;
+		Student student = studentDAO.findById(studentId);
+		student.setFirstName("Scooby");
+		studentDAO.update(student);
 	}
 
 	private void queryForStudentByLastName(StudentDAO studentDAO) {
